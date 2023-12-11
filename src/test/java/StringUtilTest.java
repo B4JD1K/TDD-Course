@@ -12,7 +12,7 @@ public class StringUtilTest {
     public void limitReached_StringTruncates(int limit, String output) {
 
         String input = "The economy is about to";   // length 23
-        Assertions.assertEquals(output, StringUtil.truncate(input, limit));
+        Assertions.assertEquals(output, StringUtil.truncateWithEllipsis(input, limit));
     }
 
     public static Stream<Arguments> validLimitProvider() {
@@ -42,7 +42,7 @@ public class StringUtilTest {
     @ParameterizedTest
     @MethodSource("inputOutputLimitProvider")
     public void limitNotReachedAtBorder_StringNotChanged(String input, int limit) {
-        Assertions.assertEquals("The economy is about to", StringUtil.truncate(input, limit));
+        Assertions.assertEquals("The economy is about to", StringUtil.truncateWithEllipsis(input, limit));
     }
 
     public static Stream<Arguments> inputOutputLimitProvider() {
@@ -68,7 +68,7 @@ public class StringUtilTest {
     @MethodSource("invalidArgumentProvider")
     public void invalidInput_isRejected(String input, int limit) {
         Assertions.assertThrows(IllegalArgumentException.class,
-                () -> StringUtil.truncate(input, limit));
+                () -> StringUtil.truncateWithEllipsis(input, limit));
     }
 
     public static Stream<Arguments> invalidArgumentProvider() {
@@ -89,7 +89,7 @@ public class StringUtilTest {
     @ParameterizedTest
     @MethodSource("shortInputLessOrEqualToEllipsis")
     public void inputShorterThanLimit_StringNotChanged(String input, int limit) {
-        Assertions.assertEquals(input, StringUtil.truncate(input, limit));
+        Assertions.assertEquals(input, StringUtil.truncateWithEllipsis(input, limit));
     }
 
     public static Stream<Arguments> shortInputLessOrEqualToEllipsis() {
