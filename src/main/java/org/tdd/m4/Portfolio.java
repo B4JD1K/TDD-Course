@@ -25,7 +25,11 @@ public class Portfolio {
         if (positions.containsKey(symbol)) {
             Position existingPosition = positions.get(symbol);
             int newQuantity = existingPosition.getQty() + position.getQty();
+            double newAveragePrice = (existingPosition.getQty() * existingPosition.getAveragePx()
+                                        + position.getQty() * position.getAveragePx()) / newQuantity;
+
             existingPosition.setQuantity(newQuantity);
+            existingPosition.setAveragePrice(newAveragePrice);
         } else {
             positions.put(symbol, position);
         }
@@ -33,5 +37,18 @@ public class Portfolio {
 
     public Position getPosition(String symbol) {
         return positions.get(symbol);
+    }
+
+    public double getTotalValue() {
+        return positions.values().stream()
+                .mapToDouble(Position::getValue)
+                .sum();
+    }
+
+    public void print(){
+        positions.values().forEach(System.out::println);
+
+        System.out.println("=========================");
+        System.out.println(getTotalValue());
     }
 }

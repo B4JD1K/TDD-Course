@@ -20,7 +20,7 @@ public class Position {
         return qty;
     }
 
-    public double getPx() {
+    public double getAveragePx() {
         return px;
     }
 
@@ -28,8 +28,16 @@ public class Position {
         return qty * px;
     }
 
-
     public void setQuantity(int newQty) {
-        this.qty=newQty;
+        this.qty = newQty;
+    }
+
+    public void setAveragePrice(double newAveragePx) {
+        this.px = newAveragePx;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("{ %s | Qty: %s | Px: %s | Value: %s}", stock, qty, px, getValue());
     }
 }
