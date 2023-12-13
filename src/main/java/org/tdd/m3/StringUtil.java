@@ -1,4 +1,4 @@
-package m3;
+package org.tdd.m3;
 
 public class StringUtil {
 

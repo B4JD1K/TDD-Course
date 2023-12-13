@@ -10,6 +10,7 @@ Think stage:
 
 
     - Portfolio
+    - Position?
     - Stock (has qty, price, value (qty * px) )
 
 Tests:

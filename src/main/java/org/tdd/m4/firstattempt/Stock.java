@@ -1,4 +1,4 @@
-package m4;
+package org.tdd.m4.firstattempt;
 
 public class Stock {
     String symbol;
@@ -26,5 +26,10 @@ public class Stock {
     public double totalValue() {
 
         return qty * px;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("{ %s | Qty: %s | Px: %s | Value: %s}", symbol, qty, px, qty * px);
     }
 }
