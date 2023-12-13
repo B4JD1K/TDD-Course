@@ -1,3 +1,5 @@
+package m3;
+
 public class StringUtil {
 
     // TODO - Exercise
