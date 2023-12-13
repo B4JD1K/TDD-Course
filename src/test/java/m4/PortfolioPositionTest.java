@@ -97,19 +97,19 @@ public class PortfolioPositionTest {
     }
 
     @Test
-    public void complexPortfolio_ReturnsCorrectTotalValue(){
+    public void complexPortfolio_ReturnsCorrectTotalValue() {
         var portfolio = new Portfolio();
 
-        portfolio.add(position(MICROSOFT,1,260));
-        portfolio.add(position(MICROSOFT,2,250));
+        portfolio.add(position(MICROSOFT, 1, 260));
+        portfolio.add(position(MICROSOFT, 2, 250));
 
-        portfolio.add(position(APPLE,5,90));
-        portfolio.add(position(APPLE,10,80));
+        portfolio.add(position(APPLE, 5, 90));
+        portfolio.add(position(APPLE, 10, 80));
 
-        portfolio.add(position(ORACLE,100,80));
+        portfolio.add(position(ORACLE, 100, 80));
 
-        Assertions.assertEquals(3,portfolio.getAllPositions().size());
-        Assertions.assertEquals(10010,portfolio.getTotalValue());
+        Assertions.assertEquals(3, portfolio.getAllPositions().size());
+        Assertions.assertEquals(10010, portfolio.getTotalValue());
     }
 
     private static Position position(String symbol, int qty, double px) {

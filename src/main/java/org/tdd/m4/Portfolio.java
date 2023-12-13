@@ -26,7 +26,7 @@ public class Portfolio {
             Position existingPosition = positions.get(symbol);
             int newQuantity = existingPosition.getQty() + position.getQty();
             double newAveragePrice = (existingPosition.getQty() * existingPosition.getAveragePx()
-                                        + position.getQty() * position.getAveragePx()) / newQuantity;
+                    + position.getQty() * position.getAveragePx()) / newQuantity;
 
             existingPosition.setQuantity(newQuantity);
             existingPosition.setAveragePrice(newAveragePrice);
@@ -45,7 +45,7 @@ public class Portfolio {
                 .sum();
     }
 
-    public void print(){
+    public void print() {
         positions.values().forEach(System.out::println);
 
         System.out.println("=========================");
